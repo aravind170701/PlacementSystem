@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "892754158693",
+    "firebase_url": "https://placement-system-f3649.firebaseio.com",
+    "project_id": "placement-system-f3649",
+    "storage_bucket": "placement-system-f3649.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:892754158693:android:acfe5bda1815d03c60d28c",
+        "android_client_info": {
+          "package_name": "aravind.com.placement"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "892754158693-615m1plnepgkoaimthu9rb6ng6fiu9o3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC7IWo1-IcC_ojK9dC01wm0QQqGqYp0kSE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "892754158693-615m1plnepgkoaimthu9rb6ng6fiu9o3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:892754158693:android:7450d15af0adb24860d28c",
+        "android_client_info": {
+          "package_name": "aravind.com.placementapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "892754158693-615m1plnepgkoaimthu9rb6ng6fiu9o3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC7IWo1-IcC_ojK9dC01wm0QQqGqYp0kSE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "892754158693-615m1plnepgkoaimthu9rb6ng6fiu9o3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
