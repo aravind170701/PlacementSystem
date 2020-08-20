@@ -1,7 +1,7 @@
-package aravind.com.placementapp;
+package aravind.com.placementapp.pojo;
 
-class User {
-    public int id;
+public class User {
+    public String id;
     public String name;
     public String password;
     public int type;
@@ -19,7 +19,7 @@ class User {
                 '}';
     }
 
-    public User(int id, String name, String password, int type) {
+    public User(String id, String name, String password, int type) {
         this.id = id;
         this.name = name;
         this.password = password;

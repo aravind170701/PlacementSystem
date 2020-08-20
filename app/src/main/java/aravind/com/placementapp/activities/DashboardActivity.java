@@ -1,4 +1,4 @@
-package aravind.com.placementapp;
+package aravind.com.placementapp.activities;
 
 import android.os.Bundle;
 import android.view.View;
@@ -15,6 +15,9 @@ import androidx.navigation.ui.NavigationUI;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import aravind.com.placementapp.R;
+import aravind.com.placementapp.constants.Constants;
+import aravind.com.placementapp.helper.SharedPrefHelper;
 
 public class DashboardActivity extends AppCompatActivity {
 
@@ -36,12 +39,19 @@ public class DashboardActivity extends AppCompatActivity {
         });
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
+
+        int userType = Integer.parseInt(SharedPrefHelper.getEntryFromSharedPrefs(this.getApplicationContext(), Constants.SharedPrefConstants.KEY_USER_TYPE));
+        if (userType == Constants.UserTypes.USER_TYPE_ADMIN) {
+            navigationView.getMenu().removeGroup(R.id.tpoGroup);
+        }
+        if (userType == Constants.UserTypes.USER_TYPE_TPO) {
+            navigationView.getMenu().removeGroup(R.id.adminGroup);
+        }
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow)
+                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow, R.id.admin_AddStudent, R.id.admin_addTpo, R.id.tpo_addStudent, R.id.tpo_addCompany)
                 .setDrawerLayout(drawer)
                 .build();
+
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
