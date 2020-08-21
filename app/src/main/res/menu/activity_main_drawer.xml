@@ -3,36 +3,40 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
 
-    <group android:checkableBehavior="single"
-        android:id="@+id/commonGroup">
+    <group
+        android:id="@+id/commonGroup"
+        android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_home"
+            android:id="@+id/nav_placementdashboard"
             android:icon="@drawable/ic_menu_camera"
-            android:title="@string/menu_home" />
+            android:title="@string/menu_placementdashboard" />
+    </group>
+
+    <group
+        android:id="@+id/adminGroup"
+        android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_gallery"
+            android:id="@+id/admin_viewtpos"
             android:icon="@drawable/ic_menu_gallery"
-            android:title="@string/menu_gallery" />
+            android:title="@string/menu_viewtpos" />
         <item
-            android:id="@+id/nav_slideshow"
+            android:id="@+id/admin_viewstudents"
             android:icon="@drawable/ic_menu_slideshow"
-            android:title="@string/menu_slideshow" />
-    </group>
-
-    <group android:checkableBehavior="single"
-        android:id="@+id/adminGroup">
+            android:title="@string/menu_viewstudents" />
         <item
-            android:id="@+id/admin_AddStudent"
+            android:id="@+id/admin_addtpo"
             android:icon="@drawable/ic_menu_camera"
-            android:title="Add Student" />
+            android:title="@string/menu_addtpo" />
         <item
-            android:id="@+id/admin_addTpo"
+            android:id="@+id/admin_addstudent"
             android:icon="@drawable/ic_menu_gallery"
-            android:title="Add TPO" />
+            android:title="@string/menu_addstudent" />
+
     </group>
 
-    <group android:checkableBehavior="single"
-        android:id="@+id/tpoGroup">
+    <group
+        android:id="@+id/tpoGroup"
+        android:checkableBehavior="single">
         <item
             android:id="@+id/tpo_addStudent"
             android:icon="@drawable/ic_menu_camera"
@@ -43,12 +47,12 @@
             android:title="TPO Add Company" />
     </group>
 
-    <group android:checkableBehavior="single"
-        android:id="@+id/logoutGroup">
+    <group
+        android:id="@+id/logoutGroup"
+        android:checkableBehavior="single">
         <item
             android:id="@+id/logout"
             android:icon="@drawable/ic_baseline_trip_origin_24"
-            android:title="Logout"
-            />
+            android:title="Logout" />
     </group>
 </menu>

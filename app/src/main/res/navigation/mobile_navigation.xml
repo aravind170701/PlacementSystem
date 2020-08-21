@@ -3,23 +3,35 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_home">
+    app:startDestination="@+id/nav_placementdashboard">
 
     <fragment
-        android:id="@+id/nav_home"
-        android:name="aravind.com.placementapp.ui.home.HomeFragment"
-        android:label="@string/menu_home"
-        tools:layout="@layout/fragment_home" />
+        android:id="@+id/nav_placementdashboard"
+        android:name="aravind.com.placementapp.fragments.PlacementDashboardFragment"
+        android:label="@string/menu_placementdashboard"
+        tools:layout="@layout/fragment_placementdashboard" />
 
     <fragment
-        android:id="@+id/nav_gallery"
-        android:name="aravind.com.placementapp.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
+        android:id="@+id/admin_viewtpos"
+        android:name="aravind.com.placementapp.fragments.admin.ViewTPOFragment"
+        android:label="@string/menu_viewtpos"
+        tools:layout="@layout/fragment_viewtpos" />
 
     <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="aravind.com.placementapp.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+        android:id="@+id/admin_viewstudents"
+        android:name="aravind.com.placementapp.fragments.admin.ViewStudentsFragment"
+        android:label="@string/menu_viewstudents"
+        tools:layout="@layout/fragment_viewstudents" />
+
+    <fragment
+        android:id="@+id/admin_addtpo"
+        android:name="aravind.com.placementapp.fragments.admin.AddTPOFragment"
+        android:label="@string/menu_addtpo"
+        tools:layout="@layout/fragment_addtpo" />
+
+    <fragment
+        android:id="@+id/admin_addstudent"
+        android:name="aravind.com.placementapp.fragments.admin.AddStudentFragment"
+        android:label="@string/menu_addstudent"
+        tools:layout="@layout/fragment_addstudent" />
 </navigation>

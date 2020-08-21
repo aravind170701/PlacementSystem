@@ -21,10 +21,12 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import aravind.com.placementapp.R;
 import aravind.com.placementapp.constants.Constants;
+import aravind.com.placementapp.fragments.admin.AddStudentFragment;
+import aravind.com.placementapp.fragments.admin.AddTPOFragment;
 import aravind.com.placementapp.helper.SharedPrefHelper;
-import aravind.com.placementapp.ui.gallery.GalleryFragment;
-import aravind.com.placementapp.ui.home.HomeFragment;
-import aravind.com.placementapp.ui.slideshow.SlideshowFragment;
+import aravind.com.placementapp.fragments.admin.ViewTPOFragment;
+import aravind.com.placementapp.fragments.PlacementDashboardFragment;
+import aravind.com.placementapp.fragments.admin.ViewStudentsFragment;
 
 public class DashboardActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -89,9 +91,11 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
         int id = item.getItemId();
 
         switch (id) {
-            case R.id.nav_home:
-            case R.id.nav_gallery:
-            case R.id.nav_slideshow:
+            case R.id.nav_placementdashboard:
+            case R.id.admin_viewtpos:
+            case R.id.admin_viewstudents:
+            case R.id.admin_addtpo:
+            case R.id.admin_addstudent:
                 displaySelectedFragment(id);
                 break;
             case R.id.logout:
@@ -109,18 +113,28 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
         Fragment fragment = null;
 
         switch (itemId) {
-            case R.id.nav_home: {
-                fragment = new HomeFragment();
+            case R.id.nav_placementdashboard: {
+                fragment = new PlacementDashboardFragment();
                 break;
             }
 
-            case R.id.nav_gallery: {
-                fragment = new GalleryFragment();
+            case R.id.admin_viewtpos: {
+                fragment = new ViewTPOFragment();
                 break;
             }
 
-            case R.id.nav_slideshow: {
-                fragment = new SlideshowFragment();
+            case R.id.admin_viewstudents: {
+                fragment = new ViewStudentsFragment();
+                break;
+            }
+
+            case R.id.admin_addtpo: {
+                fragment = new AddTPOFragment();
+                break;
+            }
+
+            case R.id.admin_addstudent: {
+                fragment = new AddStudentFragment();
                 break;
             }
         }
