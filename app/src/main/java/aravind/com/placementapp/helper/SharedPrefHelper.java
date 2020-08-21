@@ -25,4 +25,15 @@ public abstract class SharedPrefHelper {
         SharedPreferences sharedPreferences = context.getSharedPreferences(Constants.SharedPrefConstants.KEY_SHARED_PREF, Context.MODE_PRIVATE);
         return sharedPreferences.getString(key, null);
     }
+
+    public static boolean clearEntriesInSharedPrefs(Context context) {
+        if (context == null) {
+            return false;
+        }
+        SharedPreferences sharedPreferences = context.getSharedPreferences(Constants.SharedPrefConstants.KEY_SHARED_PREF, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.clear();
+        editor.commit();
+        return true;
+    }
 }

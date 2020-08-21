@@ -42,4 +42,13 @@
             android:icon="@drawable/ic_menu_gallery"
             android:title="TPO Add Company" />
     </group>
+
+    <group android:checkableBehavior="single"
+        android:id="@+id/logoutGroup">
+        <item
+            android:id="@+id/logout"
+            android:icon="@drawable/ic_baseline_trip_origin_24"
+            android:title="Logout"
+            />
+    </group>
 </menu>

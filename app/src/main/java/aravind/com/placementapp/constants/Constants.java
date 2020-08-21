@@ -4,6 +4,7 @@ public abstract class Constants {
 
     public static final String INVALID_USER = "Username or Password Incorrect";
     public static final String NO_LOGIN_INPUT = "Please enter credentials";
+    public static final String LOGGED_OUT = "User Logged out Successfully";
 
     public class FirebaseConstants {
         public static final String PATH_LOGIN = "Login";

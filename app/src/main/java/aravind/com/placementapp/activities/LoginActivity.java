@@ -39,7 +39,11 @@ public class LoginActivity extends AppCompatActivity {
         getSupportActionBar().hide();
         setContentView(R.layout.activity_login);
         initializeLayoutItems();
-
+        String check_id = SharedPrefHelper.getEntryFromSharedPrefs(this.getApplicationContext(),Constants.SharedPrefConstants.KEY_USER_ID);
+        if(check_id!=null){
+            Intent i = new Intent(LoginActivity.this,DashboardActivity.class);
+            startActivity(i);
+        }
         login1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
