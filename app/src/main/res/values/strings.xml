@@ -2,8 +2,7 @@
     <string name="app_name">PlacementApp</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">Android Studio</string>
-    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_title">Hi, User</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
 
@@ -12,4 +11,15 @@
     <string name="menu_viewstudents">View Students</string>
     <string name="menu_addtpo">Add TPO</string>
     <string name="menu_addstudent">Add Student</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_tpoId">Enter TPO\'s ID</string>
+    <string name="prompt_tpoName">Enter TPO\'s Name</string>
+    <string name="prompt_studentId">Enter Student\'s ID</string>
+    <string name="prompt_studentName">Enter Student\'s Name</string>
+    <string name="default_password_hint">Enter Password (indira123)</string>
+    <string name="default_password">indira123</string>
+    <string name="action_add_tpo">Add TPO</string>
+    <string name="action_add_student">Add Student</string>
+    <string name="action_reset">Reset</string>
 </resources>

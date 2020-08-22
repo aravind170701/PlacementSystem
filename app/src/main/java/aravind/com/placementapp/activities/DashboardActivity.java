@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -21,22 +22,25 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import aravind.com.placementapp.R;
 import aravind.com.placementapp.constants.Constants;
+import aravind.com.placementapp.fragments.PlacementDashboardFragment;
 import aravind.com.placementapp.fragments.admin.AddStudentFragment;
 import aravind.com.placementapp.fragments.admin.AddTPOFragment;
-import aravind.com.placementapp.helper.SharedPrefHelper;
-import aravind.com.placementapp.fragments.admin.ViewTPOFragment;
-import aravind.com.placementapp.fragments.PlacementDashboardFragment;
 import aravind.com.placementapp.fragments.admin.ViewStudentsFragment;
+import aravind.com.placementapp.fragments.admin.ViewTPOFragment;
+import aravind.com.placementapp.helper.SharedPrefHelper;
 
 public class DashboardActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private DrawerLayout drawer;
+    private String userName;
+    private TextView userNameView;
+    private Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -55,11 +59,24 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
             navigationView.setNavigationItemSelectedListener(this);
 
             int userType = Integer.parseInt(SharedPrefHelper.getEntryFromSharedPrefs(this.getApplicationContext(), Constants.SharedPrefConstants.KEY_USER_TYPE));
+            setUserNameToHeader(navigationView);
+
             if (userType == Constants.UserTypes.USER_TYPE_ADMIN) {
                 navigationView.getMenu().removeGroup(R.id.tpoGroup);
             }
             if (userType == Constants.UserTypes.USER_TYPE_TPO) {
                 navigationView.getMenu().removeGroup(R.id.adminGroup);
+            }
+        }
+    }
+
+    private void setUserNameToHeader(NavigationView navigationView) {
+        if (navigationView != null) {
+            View navHeaderView = navigationView.getHeaderView(0);
+            userNameView = (TextView) navHeaderView.findViewById(R.id.nav_header_titleId);
+            if (userNameView != null) {
+                userName = SharedPrefHelper.getEntryFromSharedPrefs(this.getApplicationContext(), Constants.SharedPrefConstants.KEY_USER_NAME);
+                userNameView.setText("Hi, " + userName);
             }
         }
     }
@@ -90,6 +107,11 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
 
+        drawer = findViewById(R.id.drawer_layout);
+        if (drawer != null) {
+            drawer.closeDrawer(GravityCompat.START);
+        }
+
         switch (id) {
             case R.id.nav_placementdashboard:
             case R.id.admin_viewtpos:
@@ -102,10 +124,6 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
                 logOutFromApp();
                 break;
         }
-        drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        if (drawer != null) {
-            drawer.closeDrawer(GravityCompat.START);
-        }
         return false;
     }
 
@@ -114,26 +132,31 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
 
         switch (itemId) {
             case R.id.nav_placementdashboard: {
+                toolbar.setTitle("Placement Dashboard");
                 fragment = new PlacementDashboardFragment();
                 break;
             }
 
             case R.id.admin_viewtpos: {
+                toolbar.setTitle("View TPOs");
                 fragment = new ViewTPOFragment();
                 break;
             }
 
             case R.id.admin_viewstudents: {
+                toolbar.setTitle("View Students");
                 fragment = new ViewStudentsFragment();
                 break;
             }
 
             case R.id.admin_addtpo: {
+                toolbar.setTitle("Add TPO");
                 fragment = new AddTPOFragment();
                 break;
             }
 
             case R.id.admin_addstudent: {
+                toolbar.setTitle("Add Student");
                 fragment = new AddStudentFragment();
                 break;
             }

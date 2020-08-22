@@ -1,7 +1,7 @@
 package aravind.com.placementapp.constants;
 
 public abstract class Constants {
-
+    public static final String DEFAULT_PASSWORD = "indira123";
     public static final String INVALID_USER = "Username or Password Incorrect";
     public static final String NO_LOGIN_INPUT = "Please enter credentials";
     public static final String LOGGED_OUT = "User Logged out Successfully";
