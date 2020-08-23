@@ -28,6 +28,8 @@ public class AddStudentFragment extends Fragment implements View.OnClickListener
     private EditText userIdView;
     private EditText nameView;
     private EditText passwordView;
+    private EditText branchView;
+    private EditText percentageView;
     private ProgressBar loadingBar;
 
 
@@ -46,6 +48,8 @@ public class AddStudentFragment extends Fragment implements View.OnClickListener
         super.onViewCreated(fragmentView, savedInstanceState);
         userIdView = fragmentView.findViewById(R.id.addStudentId);
         nameView = fragmentView.findViewById(R.id.addStudentName);
+        branchView = fragmentView.findViewById(R.id.addStudentBranch);
+        percentageView = fragmentView.findViewById(R.id.addStudentPercentage);
         passwordView = fragmentView.findViewById(R.id.password);
         loadingBar = fragmentView.findViewById(R.id.loading);
         loadingBar.setVisibility(View.GONE);
@@ -60,6 +64,10 @@ public class AddStudentFragment extends Fragment implements View.OnClickListener
                     userIdView.setText("");
                 if (nameView != null)
                     nameView.setText("");
+                if (branchView != null)
+                    branchView.setText("");
+                if (percentageView != null)
+                    percentageView.setText("");
                 if (passwordView != null)
                     passwordView.setText("");
             });
@@ -69,9 +77,11 @@ public class AddStudentFragment extends Fragment implements View.OnClickListener
     @Override
     public void onClick(View v) {
         loadingBar.setVisibility(View.VISIBLE);
-        if (userIdView != null && nameView != null && passwordView != null) {
+        if (userIdView != null && nameView != null && passwordView != null && branchView != null && percentageView != null) {
             String userId = userIdView.getText().toString();
             String name = nameView.getText().toString();
+            String branch = branchView.getText().toString();
+            float percentage = Float.parseFloat(percentageView.getText().toString());
             String password = StringUtils.isBlank(passwordView.getText().toString()) ? Constants.DEFAULT_PASSWORD : passwordView.getText().toString();
             if (StringUtils.isBlank(userId)) {
                 userIdView.setError("Field Cannot be Blank");
@@ -83,13 +93,23 @@ public class AddStudentFragment extends Fragment implements View.OnClickListener
                 loadingBar.setVisibility(View.GONE);
                 return;
             }
-            createStudentUser(userId, name, password);
+            if (StringUtils.isBlank(branch)) {
+                nameView.setError("Field Cannot be Blank");
+                loadingBar.setVisibility(View.GONE);
+                return;
+            }
+            if (StringUtils.isempty(percentage)) {
+                nameView.setError("Field Cannot be Blank");
+                loadingBar.setVisibility(View.GONE);
+                return;
+            }
+            createStudentUser(userId, name, password, branch, percentage);
         }
     }
 
-    private void createStudentUser(String userId, String name, String password) {
+    private void createStudentUser(String userId, String name, String password, String branch, float percentage) {
         DatabaseReference d;
-        Student s = new Student(userId, name, password, Constants.UserTypes.USER_TYPE_STUDENT);
+        Student s = new Student(userId, name, password, Constants.UserTypes.USER_TYPE_STUDENT, branch, percentage);
         d = FirebaseHelper.getFirebaseReference(Constants.FirebaseConstants.PATH_LOGIN + "/" + userId);
         d.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override

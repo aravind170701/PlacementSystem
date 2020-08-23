@@ -31,7 +31,7 @@ public class ViewTPOFragment extends Fragment implements ValueEventListener {
     private ProgressBar loadingBar;
     private DatabaseReference databaseReference;
     private RecyclerView myrv;
-    private RecyclerViewAdapter myAdapter;
+    private RecyclerViewAdapterTPO myAdapter;
 
     public ViewTPOFragment() {
     }
@@ -54,7 +54,7 @@ public class ViewTPOFragment extends Fragment implements ValueEventListener {
         myrv.setVisibility(View.GONE);
         loadingBar = view.findViewById(R.id.loadingBar);
         loadingBar.setVisibility(View.VISIBLE);
-        myAdapter = new RecyclerViewAdapter(tpolist, this);
+        myAdapter = new RecyclerViewAdapterTPO(tpolist, this);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), 1);
         myrv.setLayoutManager(gridLayoutManager);
         return view;

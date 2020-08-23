@@ -25,4 +25,25 @@ public class User {
         this.password = password;
         this.type = type;
     }
+
+    public User(String id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public int getType() {
+        return type;
+    }
 }

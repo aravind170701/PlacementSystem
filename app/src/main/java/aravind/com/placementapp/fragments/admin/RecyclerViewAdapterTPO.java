@@ -14,18 +14,18 @@ import androidx.recyclerview.widget.RecyclerView;
 import aravind.com.placementapp.R;
 import aravind.com.placementapp.pojo.TpoInfo;
 
-public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.MyViewHolder> {
+public class RecyclerViewAdapterTPO extends RecyclerView.Adapter<RecyclerViewAdapterTPO.MyViewHolder> {
 
     private Context context;
     private List<TpoInfo> tpolist;
     private ViewTPOFragment fragment;
 
-    public RecyclerViewAdapter(Context context, List<TpoInfo> tpolist) {
+    public RecyclerViewAdapterTPO(Context context, List<TpoInfo> tpolist) {
         this.context = context;
         this.tpolist = tpolist;
     }
 
-    public RecyclerViewAdapter(List<TpoInfo> tpolist, ViewTPOFragment fragment) {
+    public RecyclerViewAdapterTPO(List<TpoInfo> tpolist, ViewTPOFragment fragment) {
         this.tpolist = tpolist;
         this.fragment = fragment;
     }
@@ -36,6 +36,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         View view;
         LayoutInflater mInflater = LayoutInflater.from(fragment.getContext());
         view = mInflater.inflate(R.layout.layout_tpo_card, parent, false);
+        view.setBackgroundResource(R.drawable.rounded_background);
         return new MyViewHolder(view);
     }
 

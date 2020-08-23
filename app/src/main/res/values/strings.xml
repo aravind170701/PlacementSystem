@@ -17,6 +17,8 @@
     <string name="prompt_tpoName">Enter TPO\'s Name</string>
     <string name="prompt_studentId">Enter Student\'s ID</string>
     <string name="prompt_studentName">Enter Student\'s Name</string>
+    <string name="prompt_studentBranch">Enter Student\'s Branch</string>
+    <string name="prompt_studentPercentage">Enter Student\'s Percentage</string>
     <string name="default_password_hint">Enter Password (indira123)</string>
     <string name="default_password">indira123</string>
     <string name="action_add_tpo">Add TPO</string>

@@ -9,6 +9,10 @@ public abstract class StringUtils {
         return (str == null) || (str.length() == 0);
     }
 
+    public static boolean isempty(float str) {
+        return (str == 0.0);
+    }
+
     public static boolean equalsIgnoreCase(String str1, String str2) {
         return (str1 != null) && (str2 != null) && str2.equalsIgnoreCase(str2);
     }
