@@ -38,13 +38,24 @@
         android:id="@+id/tpoGroup"
         android:checkableBehavior="single">
         <item
-            android:id="@+id/tpo_addStudent"
-            android:icon="@drawable/ic_menu_camera"
-            android:title="TPO Add Student" />
-        <item
             android:id="@+id/tpo_addCompany"
             android:icon="@drawable/ic_menu_gallery"
-            android:title="TPO Add Company" />
+            android:title="Add Company" />
+
+        <item
+            android:id="@+id/tpo_addNotifications"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="Add Notifications" />
+
+        <item
+            android:id="@+id/tpo_addPapers"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="Add Previous Papers" />
+
+        <item
+            android:id="@+id/tpo_addStudents"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="Add Selected Students" />
     </group>
 
     <group

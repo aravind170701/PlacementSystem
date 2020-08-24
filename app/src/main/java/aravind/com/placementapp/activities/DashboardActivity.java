@@ -27,6 +27,7 @@ import aravind.com.placementapp.fragments.admin.AddStudentFragment;
 import aravind.com.placementapp.fragments.admin.AddTPOFragment;
 import aravind.com.placementapp.fragments.admin.ViewStudentsFragment;
 import aravind.com.placementapp.fragments.admin.ViewTPOFragment;
+import aravind.com.placementapp.fragments.tpo.tpo.AddCompanyFragment;
 import aravind.com.placementapp.helper.SharedPrefHelper;
 
 public class DashboardActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -118,6 +119,10 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
             case R.id.admin_viewstudents:
             case R.id.admin_addtpo:
             case R.id.admin_addstudent:
+            case R.id.tpo_addCompany:
+            case R.id.tpo_addNotifications:
+            case R.id.tpo_addPapers:
+            case R.id.tpo_addStudents:
                 displaySelectedFragment(id);
                 break;
             case R.id.logout:
@@ -157,6 +162,30 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
 
             case R.id.admin_addstudent: {
                 toolbar.setTitle("Add Student");
+                fragment = new AddStudentFragment();
+                break;
+            }
+
+            case R.id.tpo_addCompany: {
+                toolbar.setTitle("Add Company");
+                fragment = new AddCompanyFragment();
+                break;
+            }
+
+            case R.id.tpo_addNotifications: {
+                toolbar.setTitle("Add Notifications");
+                fragment = new AddStudentFragment();
+                break;
+            }
+
+            case R.id.tpo_addPapers: {
+                toolbar.setTitle("Add Previous Papers");
+                fragment = new AddStudentFragment();
+                break;
+            }
+
+            case R.id.tpo_addStudents: {
+                toolbar.setTitle("Add Selected Students");
                 fragment = new AddStudentFragment();
                 break;
             }
