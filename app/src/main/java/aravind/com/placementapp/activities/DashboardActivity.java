@@ -8,9 +8,7 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
-import com.google.android.material.snackbar.Snackbar;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -28,6 +26,8 @@ import aravind.com.placementapp.fragments.admin.AddTPOFragment;
 import aravind.com.placementapp.fragments.admin.ViewStudentsFragment;
 import aravind.com.placementapp.fragments.admin.ViewTPOFragment;
 import aravind.com.placementapp.fragments.tpo.tpo.AddCompanyFragment;
+import aravind.com.placementapp.fragments.tpo.tpo.AddPapers;
+import aravind.com.placementapp.fragments.tpo.tpo.ViewCompanyFragment;
 import aravind.com.placementapp.helper.SharedPrefHelper;
 
 public class DashboardActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -38,19 +38,16 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
     private Toolbar toolbar;
 
     @Override
+    public void onBackPressed() {
+        moveTaskToBack(true);
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
         drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle drawerToggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(drawerToggle);
@@ -120,6 +117,7 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
             case R.id.admin_addtpo:
             case R.id.admin_addstudent:
             case R.id.tpo_addCompany:
+            case R.id.tpo_viewCompany:
             case R.id.tpo_addNotifications:
             case R.id.tpo_addPapers:
             case R.id.tpo_addStudents:
@@ -139,6 +137,12 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
             case R.id.nav_placementdashboard: {
                 toolbar.setTitle("Placement Dashboard");
                 fragment = new PlacementDashboardFragment();
+                break;
+            }
+
+            case R.id.tpo_viewCompany: {
+                toolbar.setTitle("View Company");
+                fragment = new ViewCompanyFragment();
                 break;
             }
 
@@ -180,7 +184,7 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
 
             case R.id.tpo_addPapers: {
                 toolbar.setTitle("Add Previous Papers");
-                fragment = new AddStudentFragment();
+                fragment = new AddPapers();
                 break;
             }
 

@@ -15,12 +15,20 @@ public class Company {
         this.companyeligibility = companyeligibility;
     }
 
+    public Company() {
+    }
+
     public String getCompanyname() {
         return companyname;
     }
 
     public String getCompanyid() {
         return companyid;
+    }
+
+    public Company(String companyname, String companyid) {
+        this.companyname = companyname;
+        this.companyid = companyid;
     }
 
     public String getCompanydescription() {
