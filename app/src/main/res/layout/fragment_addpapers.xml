@@ -35,17 +35,15 @@
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
         app:layout_constraintBottom_toTopOf="@+id/viewUploads"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.53"
+        app:layout_constraintHorizontal_bias="0.522"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/upload"
-        app:layout_constraintVertical_bias="0.934" />
+        app:layout_constraintVertical_bias="0.896" />
 
     <TextView
         android:id="@+id/viewUploads"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="616dp"
-        android:layout_marginBottom="65dp"
         android:padding="10dp"
         android:text="View Uploads"
         android:textAlignment="center"
@@ -56,7 +54,7 @@
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.86" />
 
     <Button
         android:id="@+id/upload"

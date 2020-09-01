@@ -114,9 +114,14 @@ public class AddPapers extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
+
         switch (v.getId()) {
             case R.id.upload:
-                getPDF();
+                if (fileName.getText().toString().length() == 0) {
+                    fileName.setError("Please Enter a Name for your File!");
+                    Toast.makeText(v.getContext(), "Please Enter a Name for your File", Toast.LENGTH_SHORT).show();
+                } else
+                    getPDF();
                 break;
             case R.id.viewUploads:
                 startActivity(new Intent(this.getActivity(), ViewUploadsActivity.class));
@@ -126,7 +131,7 @@ public class AddPapers extends Fragment implements View.OnClickListener {
 
     private void uploadFile(Uri data) {
         progressBar.setVisibility(View.VISIBLE);
-        StorageReference sRef = mStorageReference.child(Constants.FirebaseConstants.STORAGE_PATH_UPLOADS + System.currentTimeMillis() + ".pdf");
+        StorageReference sRef = mStorageReference.child(Constants.FirebaseConstants.STORAGE_PATH_UPLOADS + fileName.getText().toString() + ".pdf");
         sRef.putFile(data)
                 .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                     @Override
