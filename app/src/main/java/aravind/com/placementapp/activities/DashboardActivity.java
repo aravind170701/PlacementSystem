@@ -88,8 +88,9 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if (item.getItemId() == R.id.action_settings) {
-            return true;
+        if (item.getItemId() == R.id.viewProfile) {
+            Intent intent = new Intent(DashboardActivity.this, ViewProfileActivity.class);
+            startActivity(intent);
         }
         return super.onOptionsItemSelected(item);
     }

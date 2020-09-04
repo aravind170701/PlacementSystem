@@ -31,6 +31,22 @@ public class User {
         this.name = name;
     }
 
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public void setType(int type) {
+        this.type = type;
+    }
+
     public String getId() {
         return id;
     }
