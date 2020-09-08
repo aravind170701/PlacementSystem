@@ -3,10 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/splash"
     tools:context=".fragments.tpo.tpo.ViewUploadsActivity">
 
     <ListView
         android:id="@+id/listView"
+        android:divider="@android:color/black"
+        android:dividerHeight="10.0sp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 

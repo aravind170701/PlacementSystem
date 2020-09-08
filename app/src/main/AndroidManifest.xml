@@ -4,6 +4,7 @@
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
@@ -13,7 +14,8 @@
         android:requestLegacyExternalStorage="true"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activities.ViewProfileActivity"></activity>
+        <activity android:name=".activities.SendNotificationActivity"></activity>
+        <activity android:name=".activities.ViewProfileActivity" />
         <activity android:name=".fragments.tpo.tpo.ViewUploadsActivity" />
         <activity android:name=".activities.CompanyActivity" />
         <activity
@@ -30,6 +32,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <service android:name=".service.MyFirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
         <activity android:name=".activities.LoginActivity" />
         <activity android:name=".activities.ChangePasswordActivity" />
     </application>

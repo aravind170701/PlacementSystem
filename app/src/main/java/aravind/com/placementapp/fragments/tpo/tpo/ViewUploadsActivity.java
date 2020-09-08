@@ -3,17 +3,24 @@ package aravind.com.placementapp.fragments.tpo.tpo;
 import android.Manifest;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.SystemClock;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -32,6 +39,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.app.NotificationCompat;
@@ -60,7 +68,7 @@ public class ViewUploadsActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                //getting the upload
+
                 Upload upload = uploadList.get(i);
                 storage = FirebaseStorage.getInstance();
                 mStorageReference = storage.getReferenceFromUrl("gs://placement-system-f3649.appspot.com/");
@@ -74,7 +82,7 @@ public class ViewUploadsActivity extends AppCompatActivity {
                     }
                 }
 
-
+                Toast.makeText(ViewUploadsActivity.this, "Downloading in Progress", Toast.LENGTH_SHORT).show();
                 notificationManager = (NotificationManager) getApplicationContext().getSystemService(Context.NOTIFICATION_SERVICE);
 
                 int notificationId = 1;
@@ -89,10 +97,19 @@ public class ViewUploadsActivity extends AppCompatActivity {
                     notificationManager.createNotificationChannel(mChannel);
                 }
 
+                final File localFile = new File(rootPath, upload.getName() + ".pdf");
+
+                Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+                Uri uri = Uri.parse(localFile.getPath());
+                intent.setDataAndType(uri, "file/*");
+
+                final PendingIntent contentIntent = PendingIntent.getActivity(getApplicationContext(), 0, intent, 0);
+
                 notification = new NotificationCompat.Builder(getApplicationContext(), channelId)
                         .setSmallIcon(R.mipmap.ic_launcher)
                         .setContentTitle(upload.getName() + ".pdf")
                         .setPriority(NotificationCompat.PRIORITY_LOW)
+                        .setContentIntent(contentIntent)
                         .setContentText("Download in progress")
                         .setOngoing(true)
                         .setOnlyAlertOnce(true)
@@ -100,17 +117,17 @@ public class ViewUploadsActivity extends AppCompatActivity {
 
                 notificationManager.notify(notificationId, notification.build());
 
-                final File localFile = new File(rootPath, upload.getName() + ".pdf");
-
                 s.getFile(localFile).addOnSuccessListener(new OnSuccessListener<FileDownloadTask.TaskSnapshot>() {
                     @Override
                     public void onSuccess(FileDownloadTask.TaskSnapshot taskSnapshot) {
                         Log.e("firebase ", ";local tem file created  created " + localFile.toString());
                         SystemClock.sleep(2000);
+                        Toast.makeText(ViewUploadsActivity.this, "Download Finished", Toast.LENGTH_SHORT).show();
                         notification.setContentText("Download Finished")
                                 .setProgress(0, 0, false)
                                 .setOngoing(false);
                         notificationManager.notify(notificationId, notification.build());
+
                     }
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
@@ -148,7 +165,17 @@ public class ViewUploadsActivity extends AppCompatActivity {
                 }
 
                 //displaying it to list
-                ArrayAdapter<String> adapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_list_item_1, uploads);
+                ArrayAdapter<String> adapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_list_item_1, uploads) {
+                    @NonNull
+                    @Override
+                    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+                        View view = super.getView(position, convertView, parent);
+                        TextView textView = (TextView) view.findViewById(android.R.id.text1);
+                        textView.setTextColor(Color.WHITE);
+                        textView.setTextSize(30);
+                        return view;
+                    }
+                };
                 listView.setAdapter(adapter);
             }
 

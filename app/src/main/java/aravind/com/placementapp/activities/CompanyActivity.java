@@ -1,5 +1,6 @@
 package aravind.com.placementapp.activities;
 
+import android.app.ActionBar;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ProgressBar;
@@ -25,11 +26,17 @@ public class CompanyActivity extends AppCompatActivity implements ValueEventList
     private TextView skills;
     private TextView eligibility;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_company);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        ActionBar actionBar = getActionBar();
+        if (actionBar != null) {
+            actionBar.setHomeButtonEnabled(false);
+            actionBar.setDisplayHomeAsUpEnabled(false);
+            actionBar.setDisplayShowHomeEnabled(false);
+        }
         String idpath;
         if (savedInstanceState == null) {
             Bundle extras = getIntent().getExtras();
