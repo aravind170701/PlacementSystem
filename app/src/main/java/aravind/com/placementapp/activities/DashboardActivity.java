@@ -25,6 +25,7 @@ import aravind.com.placementapp.fragments.admin.AddStudentFragment;
 import aravind.com.placementapp.fragments.admin.AddTPOFragment;
 import aravind.com.placementapp.fragments.admin.ViewStudentsFragment;
 import aravind.com.placementapp.fragments.admin.ViewTPOFragment;
+import aravind.com.placementapp.fragments.student.student.ViewPapersFragment;
 import aravind.com.placementapp.fragments.tpo.tpo.AddCompanyFragment;
 import aravind.com.placementapp.fragments.tpo.tpo.AddPapers;
 import aravind.com.placementapp.fragments.tpo.tpo.ViewCompanyFragment;
@@ -61,9 +62,15 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
 
             if (userType == Constants.UserTypes.USER_TYPE_ADMIN) {
                 navigationView.getMenu().removeGroup(R.id.tpoGroup);
+                navigationView.getMenu().removeGroup(R.id.studentGroup);
             }
             if (userType == Constants.UserTypes.USER_TYPE_TPO) {
                 navigationView.getMenu().removeGroup(R.id.adminGroup);
+                navigationView.getMenu().removeGroup(R.id.studentGroup);
+            }
+            if (userType == Constants.UserTypes.USER_TYPE_STUDENT) {
+                navigationView.getMenu().removeGroup(R.id.adminGroup);
+                navigationView.getMenu().removeGroup(R.id.tpoGroup);
             }
         }
     }
@@ -121,6 +128,8 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
             case R.id.tpo_viewCompany:
             case R.id.tpo_addNotifications:
             case R.id.tpo_addPapers:
+            case R.id.student_viewCompany:
+            case R.id.student_viewPapers:
             case R.id.tpo_addStudents:
                 displaySelectedFragment(id);
                 break;
@@ -141,9 +150,18 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
                 break;
             }
 
+            case R.id.student_viewCompany: {
+            }
+
             case R.id.tpo_viewCompany: {
                 toolbar.setTitle("View Company");
                 fragment = new ViewCompanyFragment();
+                break;
+            }
+
+            case R.id.student_viewPapers: {
+                toolbar.setTitle("View Papers");
+                fragment = new ViewPapersFragment();
                 break;
             }
 

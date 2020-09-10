@@ -63,7 +63,7 @@ public class RecyclerViewAdapterCOMPANY extends RecyclerView.Adapter<RecyclerVie
     @Override
     public void onClick(View v) {
         Animation myAnim = AnimationUtils.loadAnimation(fragment.getContext(), R.anim.bounce_animation);
-        MyBounceInterpolator interpolator = new MyBounceInterpolator(0.2, 20);
+        MyBounceInterpolator interpolator = new MyBounceInterpolator(0.1, 10);
         myAnim.setInterpolator(interpolator);
         v.startAnimation(myAnim);
         int pos = (int) v.getTag();

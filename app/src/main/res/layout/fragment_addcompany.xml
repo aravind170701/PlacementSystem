@@ -3,134 +3,132 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/splash"
     tools:context=".fragments.tpo.tpo.AddCompanyFragment">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
 
-        <EditText
-            android:id="@+id/companyname"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="35dp"
-            android:layout_marginTop="228dp"
-            android:layout_marginRight="35dp"
-            android:layout_marginBottom="44dp"
-            android:ems="10"
-            android:hint="Enter Company Name"
-            android:inputType="textPersonName"
-            app:layout_constraintBottom_toTopOf="@+id/companydescription"
-            app:layout_constraintEnd_toEndOf="@+id/companydescription"
-            app:layout_constraintHorizontal_bias="0.8"
-            app:layout_constraintStart_toStartOf="@+id/companydescription"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <EditText
-            android:id="@+id/companydescription"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="39dp"
-            android:layout_marginRight="30dp"
-            android:layout_marginBottom="353dp"
-            android:background="#FF0000"
-            android:ems="10"
-            android:gravity="start|top"
-            android:hint="Enter Company Description"
-            android:inputType="textMultiLine"
-            android:lines="5"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.033"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/companyname" />
-
-        <EditText
-            android:id="@+id/companyskills"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="56dp"
-            android:layout_marginBottom="148dp"
-            android:ems="10"
-            android:hint="Enter Eligibilty Criteria"
-            android:inputType="textPersonName"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.328"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/companyeligibility" />
-
-        <EditText
-            android:id="@+id/companyeligibility"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="26dp"
-            android:ems="10"
-            android:hint="Enter Skills Required"
-            android:inputType="textPersonName"
-            app:layout_constraintBottom_toTopOf="@+id/companyskills"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.328"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/companydescription"
-            app:layout_constraintVertical_bias="0.072" />
-
-        <Button
-            android:id="@+id/action_add_company"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="56dp"
-            android:layout_marginTop="45dp"
-            android:layout_marginBottom="56dp"
-            android:background="@drawable/rounded_corners"
-            android:text="Add Company"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/action_reset"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/companyskills"
-            app:layout_constraintVertical_bias="1.0" />
-
-        <Button
-            android:id="@+id/action_reset"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="72dp"
-            android:layout_marginTop="45dp"
-            android:layout_marginBottom="56dp"
-            android:background="@drawable/rounded_corners"
-            android:text="reset"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/action_add_company"
-            app:layout_constraintTop_toBottomOf="@+id/companyskills" />
-
-        <EditText
-            android:id="@+id/companyid"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="35dp"
-            android:layout_marginRight="35dp"
-            android:layout_marginBottom="40dp"
-            android:ems="10"
-            android:hint="Enter Company ID"
-            android:inputType="textPersonName"
-            app:layout_constraintBottom_toTopOf="@+id/companyname"
-            app:layout_constraintEnd_toEndOf="@+id/companyname"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/companyname"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="1.0" />
-
-        <ProgressBar
-            android:id="@+id/loadingBar"
-            style="?android:attr/progressBarStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>
+
+
+    <!--            <EditText-->
+    <!--                android:id="@+id/companyname"-->
+    <!--                android:layout_width="match_parent"-->
+    <!--                android:layout_height="wrap_content"-->
+    <!--                android:layout_marginLeft="35dp"-->
+    <!--                android:layout_marginTop="228dp"-->
+    <!--                android:layout_marginRight="35dp"-->
+    <!--                android:layout_marginBottom="44dp"-->
+    <!--                android:ems="10"-->
+    <!--                android:hint="Enter Company Name"-->
+    <!--                android:inputType="textPersonName"-->
+    <!--                app:layout_constraintBottom_toTopOf="@+id/companydescription"-->
+    <!--                app:layout_constraintEnd_toEndOf="@+id/companydescription"-->
+    <!--                app:layout_constraintHorizontal_bias="0.8"-->
+    <!--                app:layout_constraintStart_toStartOf="@+id/companydescription"-->
+    <!--                app:layout_constraintTop_toTopOf="parent" />-->
+    <!--        -->
+    <!--            <EditText-->
+    <!--                android:id="@+id/companydescription"-->
+    <!--                android:layout_width="match_parent"-->
+    <!--                android:layout_height="wrap_content"-->
+    <!--                android:layout_marginLeft="30dp"-->
+    <!--                android:layout_marginTop="39dp"-->
+    <!--                android:layout_marginRight="30dp"-->
+    <!--                android:layout_marginBottom="353dp"-->
+    <!--                android:background="#FF0000"-->
+    <!--                android:ems="10"-->
+    <!--                android:gravity="start|top"-->
+    <!--                android:hint="Enter Company Description"-->
+    <!--                android:inputType="textMultiLine"-->
+    <!--                android:lines="5"-->
+    <!--                app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--                app:layout_constraintEnd_toEndOf="parent"-->
+    <!--                app:layout_constraintHorizontal_bias="0.033"-->
+    <!--                app:layout_constraintStart_toStartOf="parent"-->
+    <!--                app:layout_constraintTop_toBottomOf="@+id/companyname" />-->
+    <!--        -->
+    <!--            <EditText-->
+    <!--                android:id="@+id/companyskills"-->
+    <!--                android:layout_width="wrap_content"-->
+    <!--                android:layout_height="wrap_content"-->
+    <!--                android:layout_marginTop="56dp"-->
+    <!--                android:layout_marginBottom="148dp"-->
+    <!--                android:ems="10"-->
+    <!--                android:hint="Enter Eligibilty Criteria"-->
+    <!--                android:inputType="textPersonName"-->
+    <!--                app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--                app:layout_constraintEnd_toEndOf="parent"-->
+    <!--                app:layout_constraintHorizontal_bias="0.328"-->
+    <!--                app:layout_constraintStart_toStartOf="parent"-->
+    <!--                app:layout_constraintTop_toBottomOf="@+id/companyeligibility" />-->
+    <!--        -->
+    <!--            <EditText-->
+    <!--                android:id="@+id/companyeligibility"-->
+    <!--                android:layout_width="wrap_content"-->
+    <!--                android:layout_height="wrap_content"-->
+    <!--                android:layout_marginTop="26dp"-->
+    <!--                android:ems="10"-->
+    <!--                android:hint="Enter Skills Required"-->
+    <!--                android:inputType="textPersonName"-->
+    <!--                app:layout_constraintBottom_toTopOf="@+id/companyskills"-->
+    <!--                app:layout_constraintEnd_toEndOf="parent"-->
+    <!--                app:layout_constraintHorizontal_bias="0.328"-->
+    <!--                app:layout_constraintStart_toStartOf="parent"-->
+    <!--                app:layout_constraintTop_toBottomOf="@+id/companydescription"-->
+    <!--                app:layout_constraintVertical_bias="0.072" />-->
+    <!--        -->
+    <!--            <Button-->
+    <!--                android:id="@+id/action_add_company"-->
+    <!--                android:layout_width="wrap_content"-->
+    <!--                android:layout_height="wrap_content"-->
+    <!--                android:layout_marginStart="56dp"-->
+    <!--                android:layout_marginTop="45dp"-->
+    <!--                android:layout_marginBottom="56dp"-->
+    <!--                android:background="@drawable/rounded_corners"-->
+    <!--                android:text="Add Company"-->
+    <!--                app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--                app:layout_constraintEnd_toStartOf="@+id/action_reset"-->
+    <!--                app:layout_constraintStart_toStartOf="parent"-->
+    <!--                app:layout_constraintTop_toBottomOf="@+id/companyskills"-->
+    <!--                app:layout_constraintVertical_bias="1.0" />-->
+    <!--        -->
+    <!--            <Button-->
+    <!--                android:id="@+id/action_reset"-->
+    <!--                android:layout_width="wrap_content"-->
+    <!--                android:layout_height="wrap_content"-->
+    <!--                android:layout_marginStart="72dp"-->
+    <!--                android:layout_marginTop="45dp"-->
+    <!--                android:layout_marginBottom="56dp"-->
+    <!--                android:background="@drawable/rounded_corners"-->
+    <!--                android:text="reset"-->
+    <!--                app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--                app:layout_constraintEnd_toEndOf="parent"-->
+    <!--                app:layout_constraintStart_toEndOf="@+id/action_add_company"-->
+    <!--                app:layout_constraintTop_toBottomOf="@+id/companyskills" />-->
+    <!--        -->
+    <!--            <EditText-->
+    <!--                android:id="@+id/companyid"-->
+    <!--                android:layout_width="match_parent"-->
+    <!--                android:layout_height="wrap_content"-->
+    <!--                android:layout_marginLeft="35dp"-->
+    <!--                android:layout_marginRight="35dp"-->
+    <!--                android:layout_marginBottom="40dp"-->
+    <!--                android:ems="10"-->
+    <!--                android:hint="Enter Company ID"-->
+    <!--                android:inputType="textPersonName"-->
+    <!--                app:layout_constraintBottom_toTopOf="@+id/companyname"-->
+    <!--                app:layout_constraintEnd_toEndOf="@+id/companyname"-->
+    <!--                app:layout_constraintHorizontal_bias="0.0"-->
+    <!--                app:layout_constraintStart_toStartOf="@+id/companyname"-->
+    <!--                app:layout_constraintTop_toTopOf="parent"-->
+    <!--                app:layout_constraintVertical_bias="1.0" />-->
+    <!--        -->
+    <!--            <ProgressBar-->
+    <!--                android:id="@+id/loadingBar"-->
+    <!--                style="?android:attr/progressBarStyle"-->
+    <!--                android:layout_width="wrap_content"-->
+    <!--                android:layout_height="wrap_content"-->
+    <!--                app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--                app:layout_constraintEnd_toEndOf="parent"-->
+    <!--                app:layout_constraintStart_toStartOf="parent"-->
+    <!--                app:layout_constraintTop_toTopOf="parent" />-->

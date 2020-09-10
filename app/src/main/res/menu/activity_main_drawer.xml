@@ -64,6 +64,26 @@
     </group>
 
     <group
+        android:id="@+id/studentGroup"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/student_viewCompany"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="View Company" />
+
+
+        <item
+            android:id="@+id/tpo_viewNotifications"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="View Notifications" />
+
+        <item
+            android:id="@+id/student_viewPapers"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="View Previous Papers" />
+    </group>
+
+    <group
         android:id="@+id/logoutGroup"
         android:checkableBehavior="single">
         <item
