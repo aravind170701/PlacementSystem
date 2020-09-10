@@ -8,7 +8,7 @@
         android:checkableBehavior="single">
         <item
             android:id="@+id/nav_placementdashboard"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/dashboard"
             android:title="@string/menu_placementdashboard" />
     </group>
 
@@ -17,19 +17,19 @@
         android:checkableBehavior="single">
         <item
             android:id="@+id/admin_viewtpos"
-            android:icon="@drawable/ic_menu_gallery"
+            android:icon="@drawable/view"
             android:title="@string/menu_viewtpos" />
         <item
             android:id="@+id/admin_viewstudents"
-            android:icon="@drawable/ic_menu_slideshow"
+            android:icon="@drawable/view"
             android:title="@string/menu_viewstudents" />
         <item
             android:id="@+id/admin_addtpo"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/add"
             android:title="@string/menu_addtpo" />
         <item
             android:id="@+id/admin_addstudent"
-            android:icon="@drawable/ic_menu_gallery"
+            android:icon="@drawable/add"
             android:title="@string/menu_addstudent" />
 
     </group>
@@ -39,27 +39,22 @@
         android:checkableBehavior="single">
         <item
             android:id="@+id/tpo_addCompany"
-            android:icon="@drawable/ic_menu_gallery"
+            android:icon="@drawable/add"
             android:title="Add Company" />
 
         <item
-            android:id="@+id/tpo_viewCompany"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="View Company" />
-
-        <item
             android:id="@+id/tpo_addNotifications"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/notify"
             android:title="Add Notifications" />
 
         <item
             android:id="@+id/tpo_addPapers"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/addpa"
             android:title="Add Previous Papers" />
 
         <item
             android:id="@+id/tpo_addStudents"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/add"
             android:title="Add Selected Students" />
     </group>
 
@@ -68,7 +63,7 @@
         android:checkableBehavior="single">
         <item
             android:id="@+id/logout"
-            android:icon="@drawable/ic_baseline_trip_origin_24"
+            android:icon="@drawable/logout"
             android:title="Logout" />
     </group>
 </menu>
