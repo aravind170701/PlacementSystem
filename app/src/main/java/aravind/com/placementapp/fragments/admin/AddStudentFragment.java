@@ -51,7 +51,7 @@ public class AddStudentFragment extends Fragment implements View.OnClickListener
         branchView = fragmentView.findViewById(R.id.addStudentBranch);
         percentageView = fragmentView.findViewById(R.id.addStudentPercentage);
         passwordView = fragmentView.findViewById(R.id.password);
-        loadingBar = fragmentView.findViewById(R.id.loading);
+       // loadingBar = fragmentView.findViewById(R.id.loading);
         loadingBar.setVisibility(View.GONE);
 
         Button addstudentbutton = fragmentView.findViewById(R.id.action_student_add);
