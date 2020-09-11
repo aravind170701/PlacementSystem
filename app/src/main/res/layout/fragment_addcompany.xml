@@ -84,7 +84,7 @@
                     app:layout_constraintHorizontal_bias="0.062"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/companyid"
-                    app:layout_constraintVertical_bias="0.418" />
+                    app:layout_constraintVertical_bias="0.362" />
 
                 <EditText
                     android:id="@+id/companyname"
@@ -137,15 +137,14 @@
                     android:inputType="textMultiLine"
                     android:maxLines="6"
                     android:minLines="6"
-                    android:paddingLeft="5dp"
-                    android:paddingRight="5dp"
+                    android:padding="8dp"
                     android:textColor="#FFFFFF"
                     app:layout_constraintBottom_toTopOf="@+id/companyskills"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/companyid"
-                    app:layout_constraintVertical_bias="0.772" />
+                    app:layout_constraintVertical_bias="0.558" />
 
                 <TextView
                     android:id="@+id/companySkillsView"
@@ -166,10 +165,10 @@
                     android:id="@+id/companyskills"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="295dp"
-                    android:layout_marginBottom="57dp"
                     android:layout_marginStart="16dp"
+                    android:layout_marginTop="295dp"
                     android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="57dp"
                     android:background="@drawable/rounded_corners"
                     android:backgroundTint="#2B2468"
                     android:clickable="true"
@@ -178,13 +177,14 @@
                     android:inputType="textMultiLine"
                     android:maxLines="3"
                     android:minLines="3"
-                    android:paddingLeft="5dp"
-                    android:paddingRight="5dp"
+                    android:padding="8dp"
                     android:textColor="#FFFFFF"
                     app:layout_constraintBottom_toTopOf="@+id/companyeligibility"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/companyid" />
+                    app:layout_constraintTop_toBottomOf="@+id/companyid"
+                    app:layout_constraintVertical_bias="0.647" />
 
                 <TextView
                     android:id="@+id/companyEligibilityView"
@@ -215,13 +215,14 @@
                     android:gravity="start"
                     android:inputType="textMultiLine"
                     android:minLines="2"
-                    android:paddingLeft="5dp"
-                    android:paddingRight="5dp"
+                    android:padding="5dp"
                     android:textColor="#FFFFFF"
                     app:layout_constraintBottom_toTopOf="@+id/action_reset"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/companyid" />
+                    app:layout_constraintTop_toBottomOf="@+id/companyid"
+                    app:layout_constraintVertical_bias="0.4" />
 
                 <Button
                     android:id="@+id/action_add_company"
