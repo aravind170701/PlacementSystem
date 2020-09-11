@@ -6,7 +6,6 @@ import android.os.Handler;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,11 +17,14 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
         ImageView img = findViewById(R.id.indiralogo);
-        TextView text = findViewById(R.id.welcome);
+        ImageView img2 = findViewById(R.id.welcome);
+        ImageView img3 = findViewById(R.id.collegelogo);
         Animation anim1 = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.splash_slide_down_animation);
         Animation anim2 = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.splash_slide_up_animation);
+        Animation anim3 = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.logo_fade_animation);
         img.startAnimation(anim1);
-        text.startAnimation(anim2);
+        img2.startAnimation(anim2);
+        img3.startAnimation(anim3);
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
