@@ -1,143 +1,192 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/splash"
-    android:paddingLeft="@dimen/fragment_horizontal_margin"
-    android:paddingTop="@dimen/fragment_vertical_margin"
-    android:paddingRight="@dimen/fragment_horizontal_margin"
-    android:paddingBottom="@dimen/fragment_vertical_margin"
-    tools:context=".fragments.admin.AddTPOFragment">
-    <ScrollView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-
+    android:background="@drawable/splash">
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="190dp"
-        android:layout_height="142dp"
+        android:layout_width="234dp"
+        android:layout_height="189dp"
+        android:layout_centerHorizontal="true"
         android:src="@drawable/appwithoutbackground"
-        android:layout_centerHorizontal="true"/>
+        app:layout_constraintBottom_toTopOf="@+id/cardView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
-        android:layout_below="@+id/imageView2"
         android:layout_width="match_parent"
-        android:layout_height="450dp"
+        android:layout_height="380dp"
+        android:layout_below="@+id/imageView2"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         app:cardBackgroundColor="#010523"
-        app:cardCornerRadius="10dp">
+        app:cardCornerRadius="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.601">
 
-        <TextView
-            android:id="@+id/tpo_textv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="60dp"
-            android:text="TPO ID"
-            android:textColor="#FFFFFF"
-            android:textSize="19sp" />
-
-        <EditText
-
-            android:id="@+id/addTpoId"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:hint="ENTER TPO ID"
-            android:textColor="#FFFFFF"
-            android:textColorHint="#FFFFFF"
-            android:layout_marginTop="60dp"
-            android:textSize="19sp"
-            android:layout_marginLeft="150dp"
-            android:background="@drawable/rounded_corners"
-            android:backgroundTint="#2B2468"
-            android:paddingLeft="10dp"
-            />
-
-        <TextView
-
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="130dp"
-            android:text="TPO NAME"
-
-            android:textColor="#FFFFFF"
-            android:textSize="19sp" />
-
-        <EditText
-            android:id="@+id/addTpoName"
-
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:hint="ENTER TPO NAME"
-            android:textColor="#FFFFFF"
-            android:textColorHint="#FFFFFF"
-            android:layout_marginTop="130dp"
-            android:textSize="19sp"
-            android:layout_marginLeft="150dp"
-            android:background="@drawable/rounded_corners"
-            android:backgroundTint="#2B2468"
-            android:paddingLeft="10dp"
-            />
-        <TextView
-
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="200dp"
-            android:text="PASSWORD"
-
-            android:textColor="#FFFFFF"
-            android:textSize="19sp" />
-
-        <EditText
-            android:id="@+id/password"
-
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:hint="ENTER  PASSWORD"
-            android:textColor="#FFFFFF"
-            android:textColorHint="#FFFFFF"
-            android:layout_marginTop="200dp"
-            android:textSize="19sp"
-            android:layout_marginLeft="150dp"
-            android:background="@drawable/rounded_corners"
-            android:backgroundTint="#2B2468"
-            android:paddingLeft="10dp"
-            />
-
-        <Button
-            android:id="@+id/action_tpo_reset"
-
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="40dp"
-        android:layout_marginRight="40dp"
-        android:background="@drawable/rounded_corners"
-        android:text="RESET"
-        android:layout_marginTop="270dp"
-        />
-        <Button
-            android:id="@+id/action_tpo_add"
-
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="40dp"
-            android:layout_marginRight="40dp"
-            android:background="@drawable/rounded_corners"
-            android:text="ADD TPO"
-            android:layout_marginTop="340dp"
-            />
+            android:layout_height="match_parent">
 
+            <TextView
+                android:id="@+id/tpo_textv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="34dp"
+                android:text="TPO ID"
+                android:textColor="#FFFFFF"
+                android:textSize="19sp"
+                app:layout_constraintBottom_toTopOf="@+id/textView2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.048"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
+            <EditText
+
+                android:id="@+id/addTpoId"
+                android:layout_width="200dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="56dp"
+                android:background="@drawable/rounded_corners"
+                android:backgroundTint="#2B2468"
+                android:hint="ENTER TPO ID"
+                android:paddingLeft="10dp"
+                android:textColor="#FFFFFF"
+                android:textColorHint="@android:color/secondary_text_dark"
+                android:textSize="19sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.229"
+                app:layout_constraintStart_toEndOf="@+id/tpo_textv"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.06" />
+
+            <TextView
+
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+
+                android:layout_height="wrap_content"
+                android:layout_marginTop="34dp"
+                android:layout_marginBottom="20dp"
+                android:text="TPO NAME"
+                android:textColor="#FFFFFF"
+                android:textSize="19sp"
+                app:layout_constraintBottom_toTopOf="@+id/addTpoName"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.053"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/addTpoId"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <EditText
+                android:id="@+id/addTpoName"
+                android:layout_width="150dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="80dp"
+                android:background="@drawable/rounded_corners"
+                android:backgroundTint="#2B2468"
+                android:hint="Enter Name"
+                android:paddingLeft="5dp"
+                android:textColor="#FFFFFF"
+                android:textColorHint="@android:color/secondary_text_dark"
+                android:textSize="19sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.066"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/addTpoId" />
+
+            <TextView
+
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="104dp"
+                android:layout_marginTop="34dp"
+                android:layout_marginBottom="20dp"
+                android:text="PASSWORD"
+                android:textColor="#FFFFFF"
+                android:textSize="19sp"
+                app:layout_constraintBottom_toTopOf="@+id/password"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/textView2"
+                app:layout_constraintTop_toBottomOf="@+id/addTpoId"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <EditText
+                android:id="@+id/password"
+                android:layout_width="150dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="48dp"
+                android:layout_marginTop="80dp"
+                android:background="@drawable/rounded_corners"
+                android:backgroundTint="#2B2468"
+                android:hint="Enter Password"
+                android:paddingLeft="10dp"
+                android:textColor="#FFFFFF"
+                android:textColorHint="@android:color/secondary_text_dark"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/addTpoName"
+                app:layout_constraintTop_toBottomOf="@+id/addTpoId" />
+
+            <Button
+                android:id="@+id/action_tpo_reset"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="28dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:background="@drawable/rounded_corners"
+                android:text="RESET"
+                app:layout_constraintBottom_toTopOf="@+id/action_tpo_add"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="1.0"
+                tools:layout_editor_absoluteX="0dp" />
+
+            <Button
+                android:id="@+id/action_tpo_add"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:background="@drawable/rounded_corners"
+                android:text="ADD TPO"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.784" />
+
+            <ProgressBar
+                android:id="@+id/loading"
+                style="?android:attr/progressBarStyle"
+                android:layout_width="89dp"
+                android:layout_height="94dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.478"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.314" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>
-    </ScrollView>
 
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

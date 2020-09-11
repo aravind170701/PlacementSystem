@@ -110,7 +110,8 @@
                 app:layout_constraintEnd_toStartOf="@+id/lastName"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/id" />
+                app:layout_constraintTop_toBottomOf="@+id/id"
+                app:layout_constraintVertical_bias="0.0" />
 
             <EditText
                 android:id="@+id/lastName"

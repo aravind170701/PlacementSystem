@@ -1,12 +1,13 @@
 package aravind.com.placementapp.fragments.tpo.tpo;
 
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
@@ -23,14 +24,13 @@ import aravind.com.placementapp.helper.FirebaseHelper;
 import aravind.com.placementapp.pojo.Company;
 import aravind.com.placementapp.utils.StringUtils;
 
-public class AddCompanyFragment extends Fragment implements View.OnClickListener {
+public class AddCompanyFragment extends Fragment implements View.OnClickListener, View.OnTouchListener {
 
     private EditText companyid;
     private EditText companyname;
     private EditText companydescription;
     private EditText companyskills;
     private EditText companyeligibility;
-    private ProgressBar loadingBar;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -55,8 +55,21 @@ public class AddCompanyFragment extends Fragment implements View.OnClickListener
         companydescription = fragmentView.findViewById(R.id.companydescription);
         companyskills = fragmentView.findViewById(R.id.companyskills);
         companyeligibility = fragmentView.findViewById(R.id.companyeligibility);
-        loadingBar = fragmentView.findViewById(R.id.loadingBar);
-        loadingBar.setVisibility(View.GONE);
+
+        if (companydescription != null || companyskills != null) {
+            companyskills.setVerticalScrollBarEnabled(true);
+            companyskills.setOverScrollMode(View.OVER_SCROLL_ALWAYS);
+            companyskills.setScrollBarStyle(View.SCROLLBARS_INSIDE_INSET);
+            companyskills.setMovementMethod(ScrollingMovementMethod.getInstance());
+
+            companydescription.setVerticalScrollBarEnabled(true);
+            companydescription.setOverScrollMode(View.OVER_SCROLL_ALWAYS);
+            companydescription.setScrollBarStyle(View.SCROLLBARS_INSIDE_INSET);
+            companydescription.setMovementMethod(ScrollingMovementMethod.getInstance());
+
+            companyskills.setOnTouchListener(this);
+            companydescription.setOnTouchListener(this);
+        }
 
         Button addcompanybutton = fragmentView.findViewById(R.id.action_add_company);
         Button resetbutton = fragmentView.findViewById(R.id.action_reset);
@@ -80,7 +93,6 @@ public class AddCompanyFragment extends Fragment implements View.OnClickListener
 
     @Override
     public void onClick(View v) {
-        loadingBar.setVisibility(View.VISIBLE);
         if (companyid != null && companyname != null && companydescription != null && companyskills != null && companyeligibility != null) {
             String id = companyid.getText().toString();
             String name = companyname.getText().toString();
@@ -89,27 +101,22 @@ public class AddCompanyFragment extends Fragment implements View.OnClickListener
             String eligibility = companyeligibility.getText().toString();
             if (StringUtils.isBlank(id)) {
                 companyname.setError("Field Cannot be Blank");
-                loadingBar.setVisibility(View.GONE);
                 return;
             }
             if (StringUtils.isBlank(name)) {
                 companyname.setError("Field Cannot be Blank");
-                loadingBar.setVisibility(View.GONE);
                 return;
             }
             if (StringUtils.isBlank(description)) {
                 companydescription.setError("Field Cannot be Blank");
-                loadingBar.setVisibility(View.GONE);
                 return;
             }
             if (StringUtils.isBlank(skills)) {
                 companyskills.setError("Field Cannot be Blank");
-                loadingBar.setVisibility(View.GONE);
                 return;
             }
             if (StringUtils.isBlank(eligibility)) {
                 companyeligibility.setError("Field Cannot be Blank");
-                loadingBar.setVisibility(View.GONE);
                 return;
             }
             createStudentUser(id, name, description, skills, eligibility);
@@ -124,11 +131,9 @@ public class AddCompanyFragment extends Fragment implements View.OnClickListener
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if (checkIfUserAlreadyRegistered(dataSnapshot)) {
-                    loadingBar.setVisibility(View.GONE);
                     Toast.makeText(getInstance().getActivity(), "Company already registered", Toast.LENGTH_LONG).show();
                 } else {
                     d.setValue(c);
-                    loadingBar.setVisibility(View.GONE);
                     Toast.makeText(getInstance().getActivity(), "Company Added Successfully", Toast.LENGTH_LONG).show();
                 }
             }
@@ -150,5 +155,14 @@ public class AddCompanyFragment extends Fragment implements View.OnClickListener
         }
         Company alreadyRegisteredUser = dataSnapshot.getValue(Company.class);
         return alreadyRegisteredUser != null;
+    }
+
+    @Override
+    public boolean onTouch(View v, MotionEvent event) {
+        v.getParent().requestDisallowInterceptTouchEvent(true);
+        if ((event.getAction() & MotionEvent.ACTION_UP) != 0 && (event.getActionMasked() & MotionEvent.ACTION_UP) != 0) {
+            v.getParent().requestDisallowInterceptTouchEvent(false);
+        }
+        return false;
     }
 }
