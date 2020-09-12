@@ -43,9 +43,9 @@
             android:title="Add Company" />
 
         <item
-            android:id="@+id/tpo_addNotifications"
+            android:id="@+id/tpo_sendNotifications"
             android:icon="@drawable/notify"
-            android:title="Add Notifications" />
+            android:title="Send Notifications" />
 
         <item
             android:id="@+id/tpo_viewCompany"
