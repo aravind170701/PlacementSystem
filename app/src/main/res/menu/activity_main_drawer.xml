@@ -58,9 +58,9 @@
             android:title="Add Previous Papers" />
 
         <item
-            android:id="@+id/tpo_addStudents"
-            android:icon="@drawable/add"
-            android:title="Add Selected Students" />
+            android:id="@+id/tpo_viewAllNotifications"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="View All Notifications" />
     </group>
 
     <group
@@ -73,9 +73,9 @@
 
 
         <item
-            android:id="@+id/tpo_viewNotifications"
+            android:id="@+id/student_viewAllNotifications"
             android:icon="@drawable/ic_menu_camera"
-            android:title="View Notifications" />
+            android:title="View All Notifications" />
 
         <item
             android:id="@+id/student_viewPapers"

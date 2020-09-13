@@ -97,9 +97,11 @@ public class PlacementDashboardFragment extends Fragment implements ValueEventLi
                 if (snapshot != null) {
                     Recruiter recruiter;
                     for (DataSnapshot childSnapShot : snapshot.getChildren()) {
-                        recruiter = childSnapShot.getValue(Recruiter.class);
-                        if (recruiter != null) {
-                            recruiterList.add(new Recruiter(recruiter.getName()));
+                        if (childSnapShot != null) {
+                            recruiter = childSnapShot.getValue(Recruiter.class);
+                            if (recruiter != null) {
+                                recruiterList.add(new Recruiter(recruiter.getName(), childSnapShot.getKey()));
+                            }
                         }
                     }
                     if (loadingBar != null) {

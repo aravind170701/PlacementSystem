@@ -25,6 +25,7 @@ import aravind.com.placementapp.fragments.admin.AddStudentFragment;
 import aravind.com.placementapp.fragments.admin.AddTPOFragment;
 import aravind.com.placementapp.fragments.admin.ViewStudentsFragment;
 import aravind.com.placementapp.fragments.admin.ViewTPOFragment;
+import aravind.com.placementapp.fragments.student.student.ViewNotificationsFragment;
 import aravind.com.placementapp.fragments.student.student.ViewPapersFragment;
 import aravind.com.placementapp.fragments.tpo.tpo.AddCompanyFragment;
 import aravind.com.placementapp.fragments.tpo.tpo.AddPapers;
@@ -131,7 +132,8 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
             case R.id.tpo_addPapers:
             case R.id.student_viewCompany:
             case R.id.student_viewPapers:
-            case R.id.tpo_addStudents:
+            case R.id.student_viewAllNotifications:
+            case R.id.tpo_viewAllNotifications:
                 displaySelectedFragment(id);
                 break;
             case R.id.logout:
@@ -208,9 +210,12 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
                 break;
             }
 
-            case R.id.tpo_addStudents: {
-                toolbar.setTitle("Add Selected Students");
-                fragment = new AddStudentFragment();
+            case R.id.tpo_viewAllNotifications: {
+            }
+
+            case R.id.student_viewAllNotifications: {
+                toolbar.setTitle("View All Notifications");
+                fragment = new ViewNotificationsFragment();
                 break;
             }
         }
