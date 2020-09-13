@@ -4,63 +4,33 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true"
+    android:background="@drawable/splash"
     tools:context=".fragments.PlacementDashboardFragment">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/splash">
+        android:orientation="vertical">
 
-        <ProgressBar
-            android:id="@+id/loadingBar"
-            style="?android:attr/progressBarStyle"
-            android:layout_width="106dp"
-            android:layout_height="93dp"
-            android:layout_marginTop="296dp"
-            android:layout_marginBottom="1dp"
-            app:layout_constraintBottom_toTopOf="@+id/cardView4"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.468"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/viewPagerImageSlider"
             android:layout_width="334dp"
             android:layout_height="253dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
             android:paddingStart="40dp"
-            android:paddingEnd="40dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.493"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.056">
-
-        </androidx.viewpager2.widget.ViewPager2>
+            android:paddingEnd="40dp"></androidx.viewpager2.widget.ViewPager2>
 
         <View
             android:id="@+id/line1"
             android:layout_width="match_parent"
             android:layout_height="3dp"
             android:background="@android:color/black"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.424" />
-
-        <View
-            android:id="@+id/line2"
-            android:layout_width="match_parent"
-            android:layout_height="3dp"
-            android:background="@android:color/black"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.395"
-            tools:layout_editor_absoluteX="16dp" />
+            android:layout_marginTop="60dp"
+            android:layout_below="@id/viewPagerImageSlider"
+            android:layout_centerHorizontal="true" />
 
         <TextView
             android:id="@+id/recentNotificationView"
@@ -70,12 +40,26 @@
             android:text="Recent Notifications"
             android:textColor="#FFFFFF"
             android:textSize="26sp"
-            app:layout_constraintBottom_toTopOf="@+id/line2"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.506"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/line1"
-            app:layout_constraintVertical_bias="0.0" />
+            android:layout_below="@id/line1"
+            android:layout_centerHorizontal="true" />
+
+        <ProgressBar
+            android:id="@+id/loadingBar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="106dp"
+            android:layout_height="93dp"
+            android:layout_marginTop="296dp"
+            android:layout_marginBottom="1dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true" />
+
+        <View
+            android:id="@+id/line2"
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:background="@android:color/black"
+            android:layout_below="@id/recentNotificationView"
+            android:layout_centerHorizontal="true" />
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardView4"
@@ -84,14 +68,10 @@
             android:layout_marginStart="10dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="10dp"
-            android:layout_marginBottom="160dp"
             app:cardBackgroundColor="#B6BCE8"
             app:cardCornerRadius="8dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/recentNotificationView">
+            android:layout_below="@id/line2"
+            android:layout_centerHorizontal="true">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -111,12 +91,50 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.014" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
 
+            </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
 
+        <TextView
+            android:id="@+id/topPlacedStudentsView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/cardView4"
+            android:layout_marginTop="40dp"
+            android:layout_centerHorizontal="true"
+            android:fontFamily="@font/arbutus"
+            android:text="Top Placed Students"
+            android:textColor="#FFFFFF"
+            android:textSize="26sp" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/viewtopplacedstudents_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="18dp"
+            android:layout_below="@id/topPlacedStudentsView"
+            android:layout_centerHorizontal="true" />
 
+        <TextView
+            android:id="@+id/topRecruiters"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/viewtopplacedstudents_recycler_view"
+            android:layout_marginTop="40dp"
+            android:layout_centerHorizontal="true"
+            android:fontFamily="@font/arbutus"
+            android:text="Top Recruiters"
+            android:textColor="#FFFFFF"
+            android:textSize="26sp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/viewRecruiters_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="18dp"
+            android:layout_below="@id/topRecruiters"
+            android:layout_centerHorizontal="true" />
+    </RelativeLayout>
 </androidx.core.widget.NestedScrollView>
-

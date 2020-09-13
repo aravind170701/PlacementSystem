@@ -2,7 +2,6 @@ package aravind.com.placementapp.fragments;
 
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +13,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import androidx.annotation.NonNull;
@@ -28,15 +28,25 @@ import aravind.com.placementapp.R;
 import aravind.com.placementapp.constants.Constants;
 import aravind.com.placementapp.helper.FirebaseHelper;
 import aravind.com.placementapp.pojo.Notification;
+import aravind.com.placementapp.pojo.Recruiter;
+import aravind.com.placementapp.pojo.TopPlacedStudents;
 
 public class PlacementDashboardFragment extends Fragment implements ValueEventListener {
 
     private List<Notification> recentNotificationList;
+    private List<Notification> recentNotificationListLimited;
+    private List<TopPlacedStudents> topPlacedStudentsList;
+    private List<Recruiter> recruiterList;
     private ProgressBar loadingBar;
     private DatabaseReference databaseReference;
+    private DatabaseReference databaseReference1;
+    private DatabaseReference databaseReference2;
     private RecyclerView myrv;
+    private RecyclerView myrv1;
+    private RecyclerView myrv2;
     private RecyclerViewAdapterRecentNotification myAdapter;
-
+    private RecyclerViewAdapterTopPlacedStudents myAdapter1;
+    private RecyclerViewAdapterTopRecruiters myAdapter2;
     private ViewPager2 viewPager2;
     private Handler sliderHandler = new Handler();
 
@@ -44,9 +54,72 @@ public class PlacementDashboardFragment extends Fragment implements ValueEventLi
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         recentNotificationList = new ArrayList<>();
-        Log.i("Value", "Hello");
+        topPlacedStudentsList = new ArrayList<>();
+        recentNotificationListLimited = new ArrayList<>();
+        recruiterList = new ArrayList<>();
         databaseReference = FirebaseHelper.getFirebaseReference(Constants.FirebaseConstants.PATH_NOTIFICATIONS);
+        databaseReference1 = FirebaseHelper.getFirebaseReference(Constants.FirebaseConstants.PATH_STUDENTS);
+        databaseReference2 = FirebaseHelper.getFirebaseReference(Constants.FirebaseConstants.PATH_RECRUITERS);
         databaseReference.addListenerForSingleValueEvent(this);
+        databaseReference1.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                if (snapshot != null) {
+                    TopPlacedStudents topPlacedStudents;
+                    for (DataSnapshot childSnapShot : snapshot.getChildren()) {
+                        topPlacedStudents = childSnapShot.getValue(TopPlacedStudents.class);
+                        if (topPlacedStudents != null) {
+                            topPlacedStudentsList.add(new TopPlacedStudents(topPlacedStudents.getName(), topPlacedStudents.getCompany(), topPlacedStudents.getSalary(), topPlacedStudents.getBatch()));
+                        }
+                    }
+                    if (loadingBar != null) {
+                        loadingBar.setVisibility(View.GONE);
+                    }
+                    if (myrv1 != null && myAdapter1 != null) {
+                        myrv1.setVisibility(View.VISIBLE);
+                        myrv1.setAdapter(myAdapter1);
+                        myAdapter1.notifyDataSetChanged();
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+        databaseReference2.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                if (snapshot != null) {
+                    Recruiter recruiter;
+                    for (DataSnapshot childSnapShot : snapshot.getChildren()) {
+                        recruiter = childSnapShot.getValue(Recruiter.class);
+                        if (recruiter != null) {
+                            recruiterList.add(new Recruiter(recruiter.getName()));
+                        }
+                    }
+                    if (loadingBar != null) {
+                        loadingBar.setVisibility(View.GONE);
+                    }
+                    if (myrv2 != null && myAdapter2 != null) {
+                        myrv2.setVisibility(View.VISIBLE);
+                        myrv2.setAdapter(myAdapter2);
+                        myAdapter2.notifyDataSetChanged();
+                    }
+                }
+
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -54,14 +127,25 @@ public class PlacementDashboardFragment extends Fragment implements ValueEventLi
         if (container != null) {
             container.removeAllViews();
         }
+
         View view = inflater.inflate(R.layout.fragment_placementdashboard, container, false);
         myrv = view.findViewById(R.id.viewrecentnotification_recycler_view);
+        myrv1 = view.findViewById(R.id.viewtopplacedstudents_recycler_view);
+        myrv2 = view.findViewById(R.id.viewRecruiters_recycler_view);
         myrv.setVisibility(View.GONE);
+        myrv1.setVisibility(View.GONE);
+        myrv2.setVisibility(View.GONE);
         loadingBar = view.findViewById(R.id.loadingBar);
         loadingBar.setVisibility(View.VISIBLE);
-        myAdapter = new RecyclerViewAdapterRecentNotification(recentNotificationList, this);
+        myAdapter = new RecyclerViewAdapterRecentNotification(recentNotificationListLimited, this);
+        myAdapter1 = new RecyclerViewAdapterTopPlacedStudents(topPlacedStudentsList, this);
+        myAdapter2 = new RecyclerViewAdapterTopRecruiters(recruiterList, this);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), 1);
+        GridLayoutManager gridLayoutManager1 = new GridLayoutManager(getContext(), 1);
+        GridLayoutManager gridLayoutManager2 = new GridLayoutManager(getContext(), 1);
         myrv.setLayoutManager(gridLayoutManager);
+        myrv1.setLayoutManager(gridLayoutManager1);
+        myrv2.setLayoutManager(gridLayoutManager2);
         return view;
     }
 
@@ -133,9 +217,13 @@ public class PlacementDashboardFragment extends Fragment implements ValueEventLi
             for (DataSnapshot childSnapShot : snapshot.getChildren()) {
                 notification = childSnapShot.getValue(Notification.class);
                 if (notification != null) {
-                    recentNotificationList.add(new Notification(notification.getTitle(), notification.getMessage(), notification.getTimestamp()));
+                    Notification notification1 = new Notification(notification.getTitle(), notification.getMessage(), notification.getTimestamp());
+                    notification1.setKey(Long.parseLong(childSnapShot.getKey()));
+                    recentNotificationList.add(notification1);
                 }
             }
+            Collections.sort(recentNotificationList);
+            recentNotificationListLimited.addAll(recentNotificationList.subList(0, 5));
             if (loadingBar != null) {
                 loadingBar.setVisibility(View.GONE);
             }

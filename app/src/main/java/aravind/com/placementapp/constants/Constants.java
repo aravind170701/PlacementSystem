@@ -10,6 +10,8 @@ public abstract class Constants {
         public static final String PATH_LOGIN = "Login";
         public static final String PATH_COMPANY = "Company";
         public static final String PATH_NOTIFICATIONS = "Notifications";
+        public static final String PATH_STUDENTS = "Students";
+        public static final String PATH_RECRUITERS = "Recruiters";
         public static final String STORAGE_PATH_UPLOADS = "uploads/";
         public static final String DATABASE_PATH_UPLOADS = "uploads";
     }
