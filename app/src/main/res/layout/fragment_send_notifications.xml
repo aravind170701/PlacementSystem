@@ -118,9 +118,9 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="247dp"
-        android:layout_height="153dp"
-        android:layout_marginBottom="37dp"
+        android:layout_width="271dp"
+        android:layout_height="169dp"
+        android:layout_marginBottom="4dp"
         app:layout_constraintBottom_toTopOf="@+id/cardView3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
