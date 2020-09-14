@@ -40,6 +40,7 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
     private String userName;
     private TextView userNameView;
     private Toolbar toolbar;
+    private int userType;
 
     @Override
     public void onBackPressed() {
@@ -60,7 +61,7 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
         if (navigationView != null) {
             navigationView.setNavigationItemSelectedListener(this);
 
-            int userType = Integer.parseInt(SharedPrefHelper.getEntryFromSharedPrefs(this.getApplicationContext(), Constants.SharedPrefConstants.KEY_USER_TYPE));
+            userType = Integer.parseInt(SharedPrefHelper.getEntryFromSharedPrefs(this.getApplicationContext(), Constants.SharedPrefConstants.KEY_USER_TYPE));
             setUserNameToHeader(navigationView);
 
             if (userType == Constants.UserTypes.USER_TYPE_ADMIN) {

@@ -157,12 +157,7 @@ public class PlacementDashboardFragment extends Fragment implements ValueEventLi
         viewPager2 = view.findViewById(R.id.viewPagerImageSlider);
 
         List<SliderItem> sliderItems = new ArrayList<>();
-        sliderItems.add(new SliderItem(R.drawable.imageone));
-        sliderItems.add(new SliderItem(R.drawable.imagetwo));
-        sliderItems.add(new SliderItem(R.drawable.imagethree));
-        sliderItems.add(new SliderItem(R.drawable.imagefour));
-        sliderItems.add(new SliderItem(R.drawable.imagefive));
-
+        sliderItemsAdder(sliderItems);
 
         viewPager2.setAdapter(new SliderAdapter(sliderItems, viewPager2));
 
@@ -192,6 +187,28 @@ public class PlacementDashboardFragment extends Fragment implements ValueEventLi
             }
         });
     }
+
+    private void sliderItemsAdder(List<SliderItem> sliderItems) {
+        sliderItems.add(new SliderItem(R.drawable.imageone));
+        sliderItems.add(new SliderItem(R.drawable.imagetwo));
+        sliderItems.add(new SliderItem(R.drawable.imagethree));
+        sliderItems.add(new SliderItem(R.drawable.imagefour));
+        sliderItems.add(new SliderItem(R.drawable.imagefive));
+        sliderItems.add(new SliderItem(R.drawable.imagesix));
+        sliderItems.add(new SliderItem(R.drawable.imageseven));
+        sliderItems.add(new SliderItem(R.drawable.imageeight));
+        sliderItems.add(new SliderItem(R.drawable.imagenine));
+        sliderItems.add(new SliderItem(R.drawable.imageten));
+        sliderItems.add(new SliderItem(R.drawable.imageeleven));
+        sliderItems.add(new SliderItem(R.drawable.imagetwelve));
+        sliderItems.add(new SliderItem(R.drawable.imagethirteen));
+        sliderItems.add(new SliderItem(R.drawable.imagefourteen));
+        sliderItems.add(new SliderItem(R.drawable.imagefifteen));
+        sliderItems.add(new SliderItem(R.drawable.imagesixteen));
+        sliderItems.add(new SliderItem(R.drawable.imageseventeen));
+        sliderItems.add(new SliderItem(R.drawable.imageeighteen));
+    }
+
 
     private Runnable sliderRunnable = new Runnable() {
         @Override

@@ -36,7 +36,7 @@ public class RecyclerViewAdapterSTUDENT extends RecyclerView.Adapter<RecyclerVie
         View view;
         LayoutInflater mInflater = LayoutInflater.from(fragment.getContext());
         view = mInflater.inflate(R.layout.layout_students_card, parent, false);
-        view.setBackgroundResource(R.drawable.rounded_background);
+        view.setBackgroundResource(R.drawable.smartdp);
         return new MyViewHolder(view);
     }
 

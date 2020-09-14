@@ -21,7 +21,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.core.app.NotificationCompat;
 import aravind.com.placementapp.R;
-import aravind.com.placementapp.activities.DashboardActivity;
+import aravind.com.placementapp.activities.LoginActivity;
 
 public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
@@ -29,7 +29,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
     @Override
     public void onMessageReceived(@NonNull RemoteMessage remoteMessage) {
-        final Intent intent = new Intent(this, DashboardActivity.class);
+        final Intent intent = new Intent(this, LoginActivity.class);
         NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
         int notificationID = new Random().nextInt(3000);
 

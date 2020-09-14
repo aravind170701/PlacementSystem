@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".fragments.admin.ViewStudentsFragment"
-    android:background="@drawable/background">
+    android:background="@drawable/splash">
 
     <ProgressBar
         android:id="@+id/loadingBar1"

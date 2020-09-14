@@ -58,7 +58,6 @@
                 android:id="@+id/addTpoId"
                 android:layout_width="200dp"
                 android:layout_height="30dp"
-                android:layout_marginStart="56dp"
                 android:background="@drawable/rounded_corners"
                 android:backgroundTint="#2B2468"
                 android:hint="ENTER TPO ID"
@@ -68,7 +67,7 @@
                 android:textSize="19sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.229"
+                app:layout_constraintHorizontal_bias="0.598"
                 app:layout_constraintStart_toEndOf="@+id/tpo_textv"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.06" />
@@ -77,7 +76,6 @@
 
                 android:id="@+id/textView2"
                 android:layout_width="wrap_content"
-
                 android:layout_height="wrap_content"
                 android:layout_marginTop="34dp"
                 android:layout_marginBottom="20dp"
@@ -96,6 +94,7 @@
                 android:layout_width="150dp"
                 android:layout_height="30dp"
                 android:layout_marginTop="80dp"
+                android:layout_marginBottom="23dp"
                 android:background="@drawable/rounded_corners"
                 android:backgroundTint="#2B2468"
                 android:hint="Enter Name"
@@ -103,6 +102,7 @@
                 android:textColor="#FFFFFF"
                 android:textColorHint="@android:color/secondary_text_dark"
                 android:textSize="19sp"
+                app:layout_constraintBottom_toTopOf="@+id/action_tpo_reset"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.066"
                 app:layout_constraintStart_toStartOf="parent"
@@ -113,7 +113,6 @@
                 android:id="@+id/textView3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="104dp"
                 android:layout_marginTop="34dp"
                 android:layout_marginBottom="20dp"
                 android:text="PASSWORD"
@@ -121,36 +120,37 @@
                 android:textSize="19sp"
                 app:layout_constraintBottom_toTopOf="@+id/password"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintHorizontal_bias="0.572"
                 app:layout_constraintStart_toEndOf="@+id/textView2"
                 app:layout_constraintTop_toBottomOf="@+id/addTpoId"
                 app:layout_constraintVertical_bias="0.0" />
 
             <EditText
                 android:id="@+id/password"
-                android:layout_width="150dp"
+                android:layout_width="142dp"
                 android:layout_height="30dp"
-                android:layout_marginStart="48dp"
                 android:layout_marginTop="80dp"
+                android:layout_marginBottom="23dp"
                 android:background="@drawable/rounded_corners"
                 android:backgroundTint="#2B2468"
                 android:hint="Enter Password"
                 android:paddingLeft="10dp"
                 android:textColor="#FFFFFF"
                 android:textColorHint="@android:color/secondary_text_dark"
+                app:layout_constraintBottom_toTopOf="@+id/action_tpo_reset"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintHorizontal_bias="0.571"
                 app:layout_constraintStart_toEndOf="@+id/addTpoName"
-                app:layout_constraintTop_toBottomOf="@+id/addTpoId" />
+                app:layout_constraintTop_toBottomOf="@+id/addTpoId"
+                app:layout_constraintVertical_bias="0.0" />
 
             <Button
                 android:id="@+id/action_tpo_reset"
-
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="28dp"
-                android:layout_marginLeft="40dp"
-                android:layout_marginRight="40dp"
                 android:background="@drawable/rounded_corners"
                 android:text="RESET"
                 app:layout_constraintBottom_toTopOf="@+id/action_tpo_add"
@@ -160,7 +160,6 @@
 
             <Button
                 android:id="@+id/action_tpo_add"
-
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="40dp"
