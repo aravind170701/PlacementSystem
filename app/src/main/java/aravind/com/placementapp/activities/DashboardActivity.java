@@ -9,6 +9,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -73,6 +74,7 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
             if (userType == Constants.UserTypes.USER_TYPE_STUDENT) {
                 navigationView.getMenu().removeGroup(R.id.adminGroup);
                 navigationView.getMenu().removeGroup(R.id.tpoGroup);
+                FirebaseMessaging.getInstance().subscribeToTopic("Students");
             }
         }
     }

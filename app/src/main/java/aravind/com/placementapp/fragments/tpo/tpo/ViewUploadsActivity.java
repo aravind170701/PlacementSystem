@@ -7,7 +7,10 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -94,6 +97,9 @@ public class ViewUploadsActivity extends AppCompatActivity {
                 if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
                     NotificationChannel mChannel = new NotificationChannel(
                             channelId, channelName, importance);
+                    mChannel.enableLights(true);
+                    mChannel.setLightColor(Color.RED);
+                    mChannel.enableVibration(true);
                     notificationManager.createNotificationChannel(mChannel);
                 }
 
@@ -105,8 +111,14 @@ public class ViewUploadsActivity extends AppCompatActivity {
 
                 final PendingIntent contentIntent = PendingIntent.getActivity(getApplicationContext(), 0, intent, 0);
 
+                Bitmap largeIcon = BitmapFactory.decodeResource(getResources(),
+                        R.drawable.appwithoutbackground);
+
+                Uri notificationSoundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+
                 notification = new NotificationCompat.Builder(getApplicationContext(), channelId)
-                        .setSmallIcon(R.mipmap.ic_launcher)
+                        .setSmallIcon(R.drawable.appwithoutbackground)
+                        .setLargeIcon(largeIcon)
                         .setContentTitle(upload.getName() + ".pdf")
                         .setPriority(NotificationCompat.PRIORITY_LOW)
                         .setContentIntent(contentIntent)

@@ -7,6 +7,10 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Color;
+import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Environment;
@@ -121,6 +125,9 @@ public class RecyclerViewAdapterSTUDENT extends RecyclerView.Adapter<RecyclerVie
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
             NotificationChannel mChannel = new NotificationChannel(
                     channelId, channelName, importance);
+            mChannel.enableLights(true);
+            mChannel.setLightColor(Color.RED);
+            mChannel.enableVibration(true);
             notificationManager.createNotificationChannel(mChannel);
         }
 
@@ -132,8 +139,14 @@ public class RecyclerViewAdapterSTUDENT extends RecyclerView.Adapter<RecyclerVie
 
         final PendingIntent contentIntent = PendingIntent.getActivity(fragment.getContext(), 0, intent, 0);
 
+        Bitmap largeIcon = BitmapFactory.decodeResource(v.getResources(),
+                R.drawable.appwithoutbackground);
+
+        Uri notificationSoundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+
         notification = new NotificationCompat.Builder(fragment.getContext(), channelId)
-                .setSmallIcon(R.mipmap.ic_launcher)
+                .setSmallIcon(R.drawable.appwithoutbackground)
+                .setLargeIcon(largeIcon)
                 .setContentTitle(upload.getName() + ".pdf")
                 .setPriority(NotificationCompat.PRIORITY_LOW)
                 .setContentIntent(contentIntent)
