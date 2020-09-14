@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AnimationUtils;
 import android.widget.TextView;
 
 import java.util.List;
@@ -37,11 +38,13 @@ public class RecyclerViewAdapterNotifications extends RecyclerView.Adapter<Recyc
         View view;
         LayoutInflater mInflater = LayoutInflater.from(fragment.getContext());
         view = mInflater.inflate(R.layout.layout_recent_notification_card, parent, false);
+        view.setBackgroundResource(R.drawable.smartdp);
         return new MyViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+        holder.cardView.setAnimation(AnimationUtils.loadAnimation(fragment.getContext(), R.anim.fade_scale_animation));
         holder.title.setText(notificationList.get(position).getTitle());
         holder.message.setText(notificationList.get(position).getMessage());
         holder.time.setText("Posted On " + notificationList.get(position).getTimestamp());
@@ -63,7 +66,7 @@ public class RecyclerViewAdapterNotifications extends RecyclerView.Adapter<Recyc
             title = (TextView) itemView.findViewById(R.id.title);
             message = (TextView) itemView.findViewById(R.id.message);
             time = (TextView) itemView.findViewById(R.id.time);
-            cardView = (CardView) itemView.findViewById(R.id.card_viewtpo);
+            cardView = (CardView) itemView.findViewById(R.id.card_notification);
         }
     }
 }

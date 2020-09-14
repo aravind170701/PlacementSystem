@@ -37,6 +37,7 @@ public class RecyclerViewAdapterRecentNotification extends RecyclerView.Adapter<
         View view;
         LayoutInflater mInflater = LayoutInflater.from(fragment.getContext());
         view = mInflater.inflate(R.layout.layout_recent_notification_card, parent, false);
+        view.setBackgroundResource(R.drawable.smartdp);
         return new MyViewHolder(view);
     }
 
